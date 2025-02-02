@@ -1,7 +1,7 @@
 import { SignedIn, SignedOut, SignInButton, SignOutButton, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
-const NavigationThree = () => {
+const NavigationFour = () => {
     return (
         <nav className="bg-white shadow-md">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,4 +32,4 @@ const NavigationThree = () => {
     );
 };
 
-export default NavigationThree;
+export default NavigationFour;

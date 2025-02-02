@@ -1,6 +1,6 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
-const isProtectedRoute = createRouteMatcher(['/user-profile'])
+// const isProtectedRoute = createRouteMatcher(['/user-profile'])
 const isPublicRoute = createRouteMatcher(['/', '/sign-in(.*)', 'sign-out(.*)'])
 
 export default clerkMiddleware(async (auth, req) => {
@@ -10,18 +10,19 @@ export default clerkMiddleware(async (auth, req) => {
   // }
 
   // if a user goes to any URL NOT included in isPublicRoute without signing-in then the user will be redirected to the clerk's sign in page
-  // if (!isPublicRoute(req)) {
-  //   await auth.protect()
-  // }
+  if (!isPublicRoute(req)) {  
+    await auth.protect()
+  }
 
   // this if you want to have more control and if you want to add custom logic.
-  const authResult = await auth()
-  const { userId, redirectToSignIn } = authResult
-  if(!userId && !isPublicRoute(req)){
-    // custom logic here
-    redirectToSignIn()
-  }
+  // const authResult = await auth()
+  // const { userId, redirectToSignIn } = authResult
+  // if(!userId && !isPublicRoute(req)){
+  //   // custom logic here
+  //   return redirectToSignIn() // return statement is required here
+  // }
 });
+
 
 export const config = {
   matcher: [

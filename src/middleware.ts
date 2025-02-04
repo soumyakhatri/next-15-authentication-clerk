@@ -1,7 +1,9 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { NextResponse } from "next/server";
 
 // const isProtectedRoute = createRouteMatcher(['/user-profile'])
 const isPublicRoute = createRouteMatcher(['/', '/sign-in(.*)', 'sign-out(.*)'])
+const isAdminRoute = createRouteMatcher(['/admin(.*)'])
 
 export default clerkMiddleware(async (auth, req) => {
   // if a user goes to any URL included in isProtectedRoute without signing-in then the user will be redirected to the clerk's sign in page
@@ -21,6 +23,12 @@ export default clerkMiddleware(async (auth, req) => {
   //   // custom logic here
   //   return redirectToSignIn() // return statement is required here
   // }
+
+  if(isAdminRoute(req) && (await auth()).sessionClaims?.metadata.role !== "admin"){
+    await auth.protect()
+    const url = new URL("/", req.url)
+    return NextResponse.redirect(url)
+  }
 });
 
 

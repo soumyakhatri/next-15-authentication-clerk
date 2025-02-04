@@ -1,4 +1,4 @@
-import { auth, currentUser, User } from "@clerk/nextjs/server"
+import { auth, currentUser } from "@clerk/nextjs/server"
 
 export default async function Dashboard() {
     const authObj = await auth()

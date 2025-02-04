@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import Navigation from "@/components/navigation";
+import Navigation from "@/components/navigation/navigation";
 import Link from "next/link";
 import { Home, ShieldCheck } from "lucide-react";
 
@@ -33,7 +33,7 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <Navigation />
-          <div className="fixed top-80 left-4 sm:left-8 flex gap-3 bg-white/50 backdrop-blur-sm p-2 rounded-lg border border-gray-200/50">
+          <div className="ms-5 mt-5 sm:left-8 flex inline-block bg-white/50 backdrop-blur-sm p-2 rounded-lg border border-gray-200/50">
             <Link
               href="/"
               className="px-4 py-2 flex items-center gap-2 rounded-md hover:bg-blue-50 transition-all duration-200 text-gray-600 hover:text-blue-600"
@@ -49,7 +49,7 @@ export default function RootLayout({
               <span className="font-medium">Admin</span>
             </Link>
           </div>
-          <div className="mt-20">
+          <div className="mt-5">
             {children}
           </div>
         </body>

@@ -2,11 +2,11 @@
 
 import { useAuth, useUser } from "@clerk/nextjs"
 
-export default function () {
+export default function ClientPage() {
     const authObj = useAuth()
-    const { userId, isSignedIn, isLoaded, signOut, sessionId, getToken } = authObj
+    // const { userId, isSignedIn, isLoaded, signOut, sessionId, getToken } = authObj
     const userObj = useUser()
-    const { isLoaded: userLoaded, user, isSignedIn: isUserSignedIn } = userObj
+    // const { isLoaded: userLoaded, user, isSignedIn: isUserSignedIn } = userObj
     
     return (
         <div className="max-w-4xl mx-auto p-6">

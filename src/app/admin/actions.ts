@@ -22,7 +22,7 @@ export async function setRole(formData: FormData) {
         })
         revalidatePath("/admin")
     } catch (error) {
-        console.log("error, error")
+        console.log("error", error)
     }
 }
 
@@ -44,6 +44,6 @@ export async function removeRole(formData: FormData) {
         })
         revalidatePath("/admin")
     } catch (error) {
-        console.log("error, error")
+        console.log("error", error)
     }
 }

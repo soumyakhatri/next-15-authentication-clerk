@@ -12,7 +12,7 @@ export default async function AdminPage() {
                 <div className="text-center mb-16">
                     <h1 className="text-5xl font-extrabold text-gray-900 mb-6">Admin Dashboard</h1>
                     <h3 className="text-xl text-gray-600 max-w-2xl mx-auto">
-                        This page is protected by Clerk's middleware and only accessible to users with the admin role.
+                        {`This page is protected by Clerk's middleware and only accessible to users with the admin role.`}
                     </h3>
                 </div>
 
